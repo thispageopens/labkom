@@ -16,6 +16,7 @@ html,body {
   height:100%;
 }
 body {
+  /* Tetap gunakan flex di desktop, akan dioverride di mobile */
   display:flex;
   justify-content:center;
   align-items:center;
@@ -157,6 +158,39 @@ button{
 .action-buttons a:hover,
 .action-buttons button:hover{
   color:#00ffff;
+}
+
+/* --- Tambahan: Responsif Mobile --- */
+@media (max-width:600px){
+  body{
+    /* Nonaktifkan flex agar halaman dapat discroll di HP */
+    display:block;
+  }
+  .container{
+    margin:40px auto;
+    padding:16px;
+  }
+  h1{
+    font-size:1.3rem;
+  }
+  p,#progress{
+    font-size:0.8rem;
+  }
+  .gallery{
+    grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
+    gap:10px;
+    padding:8px;
+  }
+  .file-item img{
+    max-height:100px;
+  }
+  .action-buttons{
+    gap:12px;
+  }
+  .action-buttons a,
+  .action-buttons button{
+    font-size:1.4rem;
+  }
 }
 
 /* pastikan tetap bagus di layar besar */
